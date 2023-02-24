@@ -25,12 +25,10 @@ function displayItems(todoInput) {
   todoList.appendChild(todoItem);
 }
 
-function addDeleteFunction(todoItem) {
+function addDeleteFunction(todoInput) {
   let deleteButton = document.querySelectorAll(".delete-item");
-
-  deleteButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-      console.log(todoItem == null);
-    });
+  // deleteButton.appendChild(todoInput);
+  deleteButton.addEventListener("click", function () {
+    todoInput.pop(todoItem);
   });
 }
