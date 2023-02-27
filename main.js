@@ -10,7 +10,7 @@ form.addEventListener("click", function () {
     displayItems(todoInput);
     storeItem(todoInput);
     document.querySelector(".search").value = "";
-    addDeleteFunction(todoInput);
+    // addDeleteFunction(todoInput);
   }
 });
 
@@ -20,15 +20,24 @@ function storeItem(item) {
 
 function displayItems(todoInput) {
   let todoItem = document.createElement("li");
-  todoItem.innerHTML = `${todoInput}<div class="delete-item">Delete</div>`;
-  let todoList = document.querySelector("ul");
+  // todoItem.innerHTML = `${todoInput}<div class=".deleteBtn">Delete</div>`;
+  let todoList = document.querySelector(".ul");
+  todoItem.innerHTML = todoInput;
+  let deleteBtn = document.createElement("div");
+  deleteBtn.classList.add("deleteBtn");
+  deleteBtn.innerHTML = "Delete";
   todoList.appendChild(todoItem);
-}
-
-function addDeleteFunction(todoInput) {
-  let deleteButton = document.querySelectorAll(".delete-item");
-  // deleteButton.appendChild(todoInput);
-  deleteButton.addEventListener("click", function () {
-    todoInput.pop(todoItem);
+  todoList.appendChild(deleteBtn);
+  deleteBtn.addEventListener("click", function () {
+    todoItem.remove();
+    deleteBtn.remove();
   });
 }
+
+// function addDeleteFunction(todoInput) {
+//   let deleteButton = document.querySelectorAll(".delete-item");
+//   deleteButton.appendChild(todoInput);
+//   deleteButton.addEventListener("click", function () {
+//     todoInput.pop(todoItem);
+//   });
+// }
